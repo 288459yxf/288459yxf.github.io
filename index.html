@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>刘宇的小清新导航 ✿</title>
+  <meta name="description" content="刘宇的个人导航页 — 简约 / 小清新 / 响应式" />
+  <style>
+    :root{
+      --bg: #f6fbf9;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #6aa84f;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 8px 24px rgba(18,25,38,0.06);
+      --radius: 14px;
+      --maxw: 820px;
+      color-scheme: light;
+    }
+    [data-theme="dark"]{
+      --bg: #0f1720;
+      --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      --muted: #9aa4b2;
+      --accent: #8bd39b;
+      --glass: rgba(255,255,255,0.03);
+      --shadow: 0 10px 30px rgba(2,6,23,0.6);
+      color-scheme: dark;
+    }
+
+    /* Reset & basics */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Roboto, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg,var(--bg),#eaf7ee 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 20px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      margin:0 auto;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+      display: grid;
+      gap:18px;
+      align-items:center;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    header.top {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    .avatar {
+      width:84px;
+      height:84px;
+      border-radius:50%;
+      overflow:hidden;
+      flex:0 0 84px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border: 3px solid rgba(255,255,255,0.5);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .title {
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .title h1{
+      margin:0;
+      font-size:1.4rem;
+      letter-spacing: -0.3px;
+    }
+    .title p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .actions {
+      margin-left:auto;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .btn {
+      background:transparent;
+      border:1px solid rgba(0,0,0,0.06);
+      padding:8px 12px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:0.9rem;
+    }
+    [data-theme="dark"] .btn{ border-color: rgba(255,255,255,0.06) }
+
+    /* Links grid */
+    .links{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap:14px;
+      margin-top:4px;
+    }
+    .link {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:12px;
+      border-radius:12px;
+      text-decoration:none;
+      color:inherit;
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4));
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 6px 18px rgba(18,25,38,0.04);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+    [data-theme="dark"] .link{
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,0.03);
+      box-shadow: none;
+    }
+    .link:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(18,25,38,0.08) }
+    .link .icon {
+      width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+      font-size:1.2rem;background:linear-gradient(135deg,var(--accent), #60b96b); color:#fff;
+      flex:0 0 44px;
+    }
+    .link .label { display:flex;flex-direction:column }
+    .link .label .name{ font-weight:600 }
+    .link .label .desc{ font-size:0.84rem; color:var(--muted); margin-top:4px }
+
+    /* footer */
+    footer{
+      margin-top:14px;
+      text-align:center;
+      color:var(--muted);
+      font-size:0.92rem;
+    }
+
+    /* small screens */
+    @media (max-width:520px){
+      .title h1{ font-size:1.15rem }
+      .avatar{ width:68px; height:68px; flex:0 0 68px }
+    }
+
+    /* subtle focus outline for accessibility */
+    a:focus, button:focus { outline:3px solid rgba(100,180,120,0.18); outline-offset:3px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" id="mainCard" role="main">
+      <header class="top">
+        <div class="avatar" aria-hidden="true">
+          <!-- 替换这里的 src 为你的头像或图片地址（可用 GitHub raw 链接或外部图床） -->
+          <img src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=800&q=80&auto=format&fit=crop&crop=faces&ixlib=rb-4.0.3" alt="头像">
+        </div>
+
+        <div class="title">
+          <h1>刘宇的小清新导航 ✿</h1>
+          <p>轻快 · 简约 · 我收藏的常用链接</p>
+        </div>
+
+        <div class="actions" aria-hidden="false">
+          <button class="btn" id="themeToggle" aria-pressed="false" title="切换主题">🌙 主题</button>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </header>
+
+      <section class="links" aria-label="导航链接">
+        <a class="link" href="https://yourname.github.io/" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🏠</span>
+          <span class="label">
+            <span class="name">个人主页</span>
+            <span class="desc">我的博客 / 简历 / About</span>
+          </span>
+        </a>
+
+        <a class="link" href="https://github.com/yourname" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🐙</span>
+          <span class="label">
+            <span class="name">代码仓库</span>
+            <span class="desc">GitHub</span>
+          </span>
+        </a>
+
+        <a class="link" href="https://twitter.com/" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🐦</span>
+          <span class="label">
+            <span class="name">社交</span>
+            <span class="desc">Twitter / 微博 / B站</span>
+          </span>
+        </a>
+
+        <a class="link" href="mailto:you@example.com">
+          <span class="icon" aria-hidden="true">✉️</span>
+          <span class="label">
+            <span class="name">联系我</span>
+            <span class="desc">邮件直达</span>
+          </span>
+        </a>
+
+        <a class="link" href="https://img.example.com" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🖼️</span>
+          <span class="label">
+            <span class="name">图床</span>
+            <span class="desc">我的图片托管</span>
+          </span>
+        </a>
+
+        <a class="link" href="https://linktr.ee/" target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">🔗</span>
+          <span class="label">
+            <span class="name">收集页</span>
+            <span class="desc">更多链接</span>
+          </span>
+        </a>
+      </section>
+
+      <footer>
+        © <span id="year"></span> 刘宇 · 做点小美好 ✿
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // theme toggle + persist to localStorage
+    (function(){
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const storageKey = 'lu_theme';
+      const current = localStorage.getItem(storageKey) || 'light';
+      if(current === 'dark') document.documentElement.setAttribute('data-theme','dark');
+
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        if(isDark){
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem(storageKey,'light');
+          btn.setAttribute('aria-pressed','false');
+          btn.textContent = '🌙 主题';
+        } else {
+          document.documentElement.setAttribute('data-theme','dark');
+          localStorage.setItem(storageKey,'dark');
+          btn.setAttribute('aria-pressed','true');
+          btn.textContent = '☀️ 主题';
+        }
+      });
+
+      // init button label
+      if(document.documentElement.getAttribute('data-theme') === 'dark'){
+        btn.textContent = '☀️ 主题';
+        btn.setAttribute('aria-pressed','true');
+      }
+
+      // fill year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
