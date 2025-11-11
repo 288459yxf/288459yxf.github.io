@@ -1,7 +1,7 @@
 name: 🔄 Auto Clear Cloudflare Cache
 
 on:
-  push:
+  push:   
 分支:
       - main   # 如果你用 gh-pages，把 main 改为 gh-pages
   workflow_dispatch:   # 允许手动触发
