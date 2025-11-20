@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>刘宇的小清新导航 ✿</title>
+    <meta name="description" content="刘宇的个人导航页 — 简约 / 小清新 / 响应式" />
+    
+    <!-- 1. 引入自定义样式表 (你的修改主要在这里) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 2. 引入 Tailwind CSS (样式库) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 3. 引入字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- 4. 配置 Tailwind (颜色变量) -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Quicksand"', '"Noto Sans SC"', 'sans-serif'],
+            },
+            colors: {
+              // 暖色调色板 (你可以在这里修改主题色)
+              warm: { 
+                50: '#fdfcf8', 
+                100: '#fbf7f1', 
+                200: '#f5efe4', 
+                300: '#e6dbc5', 
+                400: '#d2bba0', 
+                500: '#bf9b7b', 
+                600: '#a57f60', 
+                900: '#4a3b32' 
+              },
+              // 自然绿色调色板
+              nature: { 
+                50: '#f2fbf5', 
+                100: '#e2f6e9', 
+                200: '#ccebd6', 
+                500: '#6aa84f', 
+                600: '#5a9142', 
+                900: '#14532d' 
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-warm-50 text-warm-900 dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-300 min-h-screen overflow-x-hidden relative">
+
+    <!-- 背景特效层 -->
+    <div id="bg-container" class="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
+        <!-- 背景色 -->
+        <div class="absolute inset-0 bg-warm-50 dark:bg-zinc-900 transition-colors duration-500"></div>
+        
+        <!-- 浮动光球 (Parallax Blobs) -->
+        <div id="blob1" class="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] md:w-[45vw] md:h-[45vw] bg-warm-200/50 dark:bg-warm-900/20 rounded-full blur-[80px] transition-transform duration-75 ease-out opacity-80 mix-blend-multiply dark:mix-blend-screen"></div>
+        <div id="blob2" class="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] md:w-[45vw] md:h-[45vw] bg-nature-200/50 dark:bg-nature-900/20 rounded-full blur-[80px] transition-transform duration-75 ease-out opacity-80 mix-blend-multiply dark:mix-blend-screen"></div>
+        <div id="blob3" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] md:w-[35vw] md:h-[35vw] bg-blue-100/50 dark:bg-blue-900/20 rounded-full blur-[60px] transition-transform duration-75 ease-out opacity-60 mix-blend-multiply dark:mix-blend-screen"></div>
+        
+        <!-- 噪点纹理 -->
+        <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.05]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E')"></div>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="w-full min-h-screen p-4 md:p-8 flex flex-col items-center relative">
+        <main class="w-full max-w-5xl flex flex-col gap-8 z-10">
+            
+            <!-- 头部 (Header) -->
+            <header class="flex items-center justify-between py-2">
+                <div class="flex items-center gap-4">
+                    <div class="relative group cursor-pointer">
+                        <div class="absolute inset-0 bg-warm-400 rounded-full blur opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                        <img src="https://ts3.tc.mm.bing.net/th/id/OIP-C.R86aJ5pc3Fu1oGj9boecuAAAAA?cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Avatar" class="relative w-14 h-14 md:w-16 md:h-16 rounded-full border-4 border-white dark:border-zinc-800 object-cover shadow-md transition-transform duration-300 group-hover:rotate-6">
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-bold text-warm-900 dark:text-warm-100">我叫刘宇 ✿</h1>
+                        <p class="text-sm md:text-base text-warm-500 dark:text-warm-400">做点小美好 · 保持好奇心</p>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="group p-3 rounded-2xl glass-panel border border-warm-200 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all active:scale-95" title="切换主题">
+                    <span id="theme-icon" class="text-xl group-hover:rotate-12 transition-transform block">🌙</span>
+                </button>
+            </header>
+
+            <!-- 时间与搜索 (Hero) -->
+            <section class="flex flex-col items-center gap-8 py-8 md:py-12 animate-fade-in">
+                <!-- 时钟 -->
+                <div class="flex flex-col items-center justify-center select-none">
+                    <div id="clock-time" class="text-6xl md:text-8xl font-bold text-warm-500 dark:text-warm-400 tracking-tighter font-sans drop-shadow-sm">00:00</div>
+                    <div class="flex items-center gap-3 mt-2">
+                        <span id="clock-date" class="text-warm-600 dark:text-warm-200 font-medium text-lg">...</span>
+                        <span class="w-1 h-1 bg-warm-400 rounded-full"></span>
+                        <span id="clock-greeting" class="text-warm-500 dark:text-warm-300 italic">你好</span>
+                    </div>
+                </div>
+
+                <!-- 搜索框 -->
+                <div class="relative w-full max-w-2xl mx-auto group z-20">
+                    <form id="search-form" class="relative transform transition-transform duration-300 focus-within:scale-105">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
+                            <span id="search-icon" class="text-2xl filter drop-shadow-sm">🌊</span>
+                        </div>
+                        <input type="text" id="search-input" placeholder="在 Bing 中搜索..." 
+                            class="search-input w-full py-4 pl-14 pr-32 text-gray-700 dark:text-white glass-panel border-2 border-warm-200 dark:border-zinc-700 rounded-full shadow-lg focus:outline-none focus:border-warm-400 dark:focus:border-warm-500 transition-all placeholder-warm-400 dark:placeholder-zinc-500">
+                        
+                        <div class="absolute inset-y-0 right-2 flex items-center gap-1">
+                            <select id="search-engine" class="h-10 px-2 bg-transparent text-sm text-warm-600 dark:text-warm-300 font-medium focus:outline-none cursor-pointer hover:bg-warm-100 dark:hover:bg-zinc-700 rounded-lg transition-colors text-center appearance-none">
+                                <option value="bing">Bing</option>
+                                <option value="google">Google</option>
+                                <option value="baidu">Baidu</option>
+                            </select>
+                            <button type="submit" class="h-10 w-10 bg-warm-500 hover:bg-warm-600 text-white rounded-full flex items-center justify-center shadow-md transition-transform active:scale-90">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- 内容网格 -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- 左侧小组件栏 -->
+                <div class="lg:col-span-1 flex flex-col gap-6 order-2 lg:order-1">
+                    
+                    <!-- 语录卡片 -->
+                    <div id="quote-card" class="cursor-pointer group relative overflow-hidden bg-gradient-to-br from-warm-100 to-white dark:from-zinc-800 dark:to-zinc-900 p-6 rounded-3xl border border-warm-200 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300 select-none">
+                        <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity text-warm-400">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 16.6569 20.6739 18 19.017 18H16.017C15.4647 18 15.017 18.4477 15.017 19V21L14.017 21ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166C6.46432 18 6.0166 18.4477 6.0166 19V21L5.0166 21Z" /></svg>
+                        </div>
+                        <div id="quote-content" class="transition-opacity duration-300">
+                            <p id="quote-text" class="text-lg md:text-xl font-medium text-warm-900 dark:text-warm-50 font-serif leading-relaxed">Loading...</p>
+                            <div class="mt-3 flex items-center gap-2">
+                                <span class="h-px w-8 bg-warm-400"></span>
+                                <p id="quote-author" class="text-sm text-warm-500 dark:text-warm-400"></p>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-xs text-warm-400 dark:text-zinc-500 flex items-center gap-1">
+                            <span class="animate-pulse">●</span> 点击切换语录
+                        </div>
+                    </div>
+
+                    <!-- 天气小组件 -->
+                    <div id="weather-card" class="glass-panel p-6 rounded-3xl border-opacity-50 dark:border-opacity-20 shadow-sm relative overflow-hidden group transition-all duration-300 hover:shadow-md min-h-[120px] flex items-center justify-center cursor-pointer">
+                        <!-- Loading State -->
+                        <div id="weather-loading" class="w-6 h-6 border-2 border-warm-400 border-t-transparent rounded-full animate-spin"></div>
+                        
+                        <!-- Content (Hidden by default) -->
+                        <div id="weather-content" class="hidden w-full justify-between items-start relative z-10">
+                            <div>
+                                <div class="text-sm text-warm-500 dark:text-zinc-400 font-medium mb-1">当前天气</div>
+                                <div class="flex items-baseline gap-1">
+                                    <span id="weather-temp" class="text-3xl font-bold text-warm-800 dark:text-warm-100">--</span>
+                                    <span class="text-lg text-warm-600 dark:text-zinc-400">°C</span>
+                                </div>
+                                <div id="weather-desc" class="text-sm font-medium mt-2 flex items-center gap-1">--</div>
+                            </div>
+                            <div id="weather-icon" class="text-4xl filter drop-shadow-sm weather-icon-anim">☀️</div>
+                        </div>
+                        
+                        <!-- Error State -->
+                        <div id="weather-error" class="hidden text-center">
+                            <span class="text-2xl mb-2 block">📍</span>
+                            <p class="text-warm-500 dark:text-zinc-500 text-xs font-medium">点击允许获取位置</p>
+                        </div>
+                    </div>
+
+                    <!-- 关于我 -->
+                    <div class="glass-panel p-6 rounded-3xl border-opacity-50 dark:border-opacity-20 shadow-sm">
+                        <h3 class="text-lg font-bold mb-3 text-warm-800 dark:text-warm-200 flex items-center gap-2">
+                            <span>👋</span> 关于我
+                        </h3>
+                        <p class="text-sm text-warm-600 dark:text-zinc-400 leading-relaxed">
+                            欢迎来到我的个人空间。这里收藏了我常用的网站和工具，同时也记录着生活中的点滴灵感。希望这个简洁温暖的界面能给你带来好心情。
+                        </p>
+                        <div class="mt-4 flex gap-2">
+                            <span class="px-3 py-1 bg-nature-100 dark:bg-nature-500/20 text-nature-600 dark:text-nature-100 text-xs rounded-full font-medium">Frontend</span>
+                            <span class="px-3 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-100 text-xs rounded-full font-medium">Design</span>
+                            <span class="px-3 py-1 bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-100 text-xs rounded-full font-medium">Life</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 右侧链接区 (由 JS 动态生成) -->
+                <div id="links-container" class="lg:col-span-2 flex flex-col gap-8 order-1 lg:order-2">
+                    <!-- Links will be injected here -->
+                </div>
+            </div>
+
+            <!-- 页脚 -->
+            <footer class="py-8 text-center">
+                <div class="w-12 h-1 bg-warm-200 dark:bg-zinc-700 mx-auto rounded-full mb-4"></div>
+                <p class="text-warm-500 dark:text-zinc-500 text-sm">
+                    © <span id="year"></span> 刘宇 · Design with ❤️ and Vanilla JS
+                </p>
+            </footer>
+        </main>
+    </div>
+
+    <!-- 引入核心逻辑脚本 -->
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

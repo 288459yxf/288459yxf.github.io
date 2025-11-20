@@ -1,0 +1,83 @@
+/* =========================================
+   全局基础样式 & 滚动条
+   ========================================= */
+
+/* 自定义滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d2bba0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bf9b7b;
+}
+
+/* 文本选中的颜色 */
+::selection {
+  background: #bf9b7b;
+  color: white;
+}
+
+/* =========================================
+   玻璃拟态效果 (Glassmorphism)
+   ========================================= */
+
+.glass-panel {
+  /* 亮色模式下的玻璃效果 */
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* 兼容 Safari */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 暗色模式下的玻璃效果 */
+.dark .glass-panel {
+  background: rgba(39, 39, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================
+   组件交互动画
+   ========================================= */
+
+/* 卡片悬停时的轻微上浮 */
+.hover-card-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-card-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* 天气图标的动画 */
+.weather-icon-anim {
+  transition: transform 0.3s ease;
+}
+
+.group:hover .weather-icon-anim {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* =========================================
+   其他微调
+   ========================================= */
+
+/* 搜索框获得焦点时的光晕优化 */
+.search-input:focus {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dark .search-input:focus {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
