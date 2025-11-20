@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Liu Yu's Space",
+  "description": "A warm, interactive, and aesthetically pleasing personal navigation dashboard.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
